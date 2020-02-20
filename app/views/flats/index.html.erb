@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>All our Flats</h1>
+  <p>All <%= @flats.count %> flats.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+
+  <% @flats.each do |flat| %>
+  <div class="col-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://source.unsplash.com/random')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= flat.name %></h4>
+            </div>
+            <p><%= flat.description %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2 fas fas fa-user-friends"></i><span><%= flat.number_of_guests %></span>
+              </div>
+              <div class="flex ml-3">
+                <i class="material-icons mr-2 fas fa-euro-sign"></i><%= flat.price_per_night %>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <a href="#">More info</a>
+            <a class="ml-3 text-warning" href="#">Edit</a>
+            <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/flats/2981">Remove</a>
+          </div>
+        </div>
+</div>
+  <% end %>
+
+  </div>
+  </div>
